@@ -1,0 +1,24 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    - name: Install Surge
+      run: npm install --global surge
+
+    - name: Deploy to Surge
+      run: surge ./ TU_SUBDOMINIO.surge.sh --token ${{ secrets.SURGE_TOKEN }}
