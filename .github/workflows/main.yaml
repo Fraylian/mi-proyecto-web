@@ -21,4 +21,4 @@ jobs:
       run: npm install --global surge
 
     - name: Deploy to Surge
-      run: surge ./ TU_SUBDOMINIO.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge --project ./project --domain fraylian09091-new-domain.surge.sh
